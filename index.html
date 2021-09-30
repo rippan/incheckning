@@ -67,11 +67,11 @@
     }
 
     .content-field-input:disabled {
-        background-color:#ebebeb;
+        background-color: #ebebeb;
     }
 
     textarea:disabled {
-        background-color:#ebebeb;
+        background-color: #ebebeb;
     }
 
     .field {
@@ -109,7 +109,7 @@
             $("#checkout-ticket").val($("#checkin-ticket").val())
             $("#checkout-phone").val($("#checkin-phone").val())
             $("#checkout-desc").val($("#checkin-desc").val())
-            $("#checkout-length").val($("#checkin-length").val()+" timmar")
+            $("#checkout-length").val($("#checkin-length").val() + " timmar")
 
             $("#checkin").fadeOut(200, () => {
                 $("#checkout").fadeIn()
@@ -137,10 +137,6 @@
             $("#checkin-length-value").text($("#checkin-length").val() + " timmar")
         })
 
-        function clearFields() {
-            
-        }
-
         function onScanSuccess(decodedText, decodedResult) {
             console.log(`Code scanned = ${decodedText}`, decodedResult)
             $("#plats").val(decodedText);
@@ -151,7 +147,7 @@
 
         function onScanError(errorMessage) {
             // handle on error condition, with error message
-            $("#qr-result").text(`Error QR-scan: ${errorMessage}`)
+            //$("#qr-result").text(`Error QR-scan: ${errorMessage}`)
         }
 
         var html5QrcodeScanner = new Html5QrcodeScanner(
@@ -216,7 +212,8 @@
             </div>
             <div id="checkin-length-value"></div>
         </div>
-        <input id="checkin-button" type="button" value="Checka in" class="button" style="margin-bottom: 20px;background-color:#00b551;" />
+        <input id="checkin-button" type="button" value="Checka in" class="button"
+            style="margin-bottom: 20px;background-color:#00b551;" />
     </div>
 
     <div id="checkout" class="content" style="display: none;">
@@ -224,8 +221,7 @@
         <div class="field" style="margin-top:10px;">
             <div>Plats</div>
             <div>
-                <input id="checkout-plats" type="text"class="content-field-input"
-                    disabled>
+                <input id="checkout-plats" type="text" class="content-field-input" disabled>
             </div>
         </div>
         <div class="field" style="margin-top:10px;">
@@ -252,7 +248,8 @@
                 <input id="checkout-length" type="tel" class="content-field-input" disabled>
             </div>
         </div>
-        <input id="checkout-button" type="button" value="Checka ut" class="button" style="margin-bottom: 20px;background-color:#d54242;" />
+        <input id="checkout-button" type="button" value="Checka ut" class="button"
+            style="margin-bottom: 20px;background-color:#d54242;" />
     </div>
 
     <div id="checkedout" class="content" style="display: none;">
