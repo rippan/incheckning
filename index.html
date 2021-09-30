@@ -15,11 +15,31 @@
         margin: 0px;
         padding: 0px;
         font-family: Arial, Helvetica, sans-serif;
+        font-size: 22px;
+    }
+
+
+    #hello {
+        text-align: center;
+        margin: 5px 0px 10px 0px;
+    }
+    
+    textarea {
+        width: 100%;
+        height: 100px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 8px 5px;
         font-size: 18px;
     }
 
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto
+    }
+
     .logo {
-        background-color: #333;
+        background-color: #0181fa;
         text-align: 'center';
         padding: 10px;
         color: white;
@@ -27,7 +47,7 @@
 
     .content {
         padding: 10px;
-        margin: 10px;
+        margin: 0px auto;
     }
 
     .content-field {
@@ -37,38 +57,118 @@
     }
 
     .content-field-input {
-        padding: 5px 5px;
+        padding: 8px 5px;
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .field {
+        margin-bottom: 15px;
+    }
+
+    .button {
+        width: 100%;
+        height: 40px;
+        background-color: #0181fa;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #0181fa;
+        border-radius: 4px;
+    }
+
+    .slider {
         width: 100%;
     }
 </style>
 <script>
     $(document).ready(function () {
+
+        $("#login-button").click(() => {
+            $("#hello").text("Hej " + $("#tekniker").val() + "!");
+            $("#login").fadeOut(200, () => {
+                $("#checkin").fadeIn()
+            })
+        })
+
+        $("#checkin-button").click(() => {
+            $("#checkin-complete").text("Tack för att du checkade in! =)");
+            $("#checkin").fadeOut(200, () => {
+                $("#checkin-complete").fadeIn()
+            })
+        })
+
+        $("#myRange").on('input', (val, event) => {
+            $("#myRangeValue").text($("#myRange").val() + " timmar")
+        })
+
         function onScanSuccess(decodedText, decodedResult) {
-            console.log(`Code scanned = ${decodedText}`, decodedResult);
-            $("#qr-result").text(`Code scanned = ${decodedText}`, decodedResult);
-            $("#qr-sms").html(`<a href="${decodedText}">${decodedText}</a>`);
-            
+            console.log(`Code scanned = ${decodedText}`, decodedResult)
+            $("#qr-result").val(decodedText);
+            //$("#qr-result").text(`Code scanned = ${decodedText}`, decodedResult)
+            //$("#qr-sms").html(`<a href="${decodedText}">${decodedText}</a>`)
+
         }
 
         var html5QrcodeScanner = new Html5QrcodeScanner(
-            "qr-reader", { fps: 10, qrbox: 200 });
-        html5QrcodeScanner.render(onScanSuccess);
-    });
+            "qr-reader", { fps: 10, qrbox: 200 })
+        html5QrcodeScanner.render(onScanSuccess)
+    })
 </script>
 
 <body>
     <div class="logo">Incheckning</div>
-    <div class="content">
-        <div id="qr-reader" style="width: 100%;"></div>
-        <div id="qr-result"></div>
-        <div id="qr-sms"></div>
+    <div id="login" class="content">
+        <img src="workers.png" class="center">
         <div class="field">
             <div>Tekniker</div>
             <div>
-                <input type="text" placeholder="Tekniker ID" class="content-field-input">
+                <input id="tekniker" type="text" placeholder="Tekniker ID" class="content-field-input">
             </div>
         </div>
+        <input id="login-button" type="button" value="Logga in" class="button" />
     </div>
+    <div id="checkin" class="content" style="display: none;">
+        <div id="hello"></div>
+        <div id="qr-reader" style="width: 100%;"></div>
+        <div id="qr-result"></div>
+        <!--
+        <div id="qr-sms"></div>
+        -->
+        <div class="field" style="margin-top:10px;">
+            <div>Plats</div>
+            <div>
+                <input type="text" placeholder="Plats för incheckning" class="content-field-input">
+            </div>
+        </div>
+        <div class="field" style="margin-top:10px;">
+            <div>Ärendenummer</div>
+            <div>
+                <input type="text" placeholder="JOBB-1154" class="content-field-input">
+            </div>
+        </div>
+        <div class="field">
+            <div>Telefonnummer</div>
+            <div>
+                <input type="tel" placeholder="070-111 22 33" class="content-field-input">
+            </div>
+        </div>
+        <div class="field">
+            <div>Arbetsbeskrivning</div>
+            <div>
+                <textarea placeholder="Beskriv typ av arbete"></textarea>
+            </div>
+        </div>
+        <div class="field">
+            <div>Längd på arbete <i style="color:#999;">(timmar)</i></div>
+            <div>
+                <input type="range" min="1" max="24" value="8" class="slider" id="myRange">
+            </div>
+            <div id="myRangeValue"></div>
+        </div>
+        <input id="checkin-button" type="button" value="Checka in" class="button" />
+    </div>
+
+    <div id="checkin-complete" class="content" style="display: none;"></div>
 
 </body>
 
