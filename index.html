@@ -66,6 +66,14 @@
         border-radius: 4px;
     }
 
+    .content-field-input:disabled {
+        background-color:#ebebeb;
+    }
+
+    textarea:disabled {
+        background-color:#ebebeb;
+    }
+
     .field {
         margin-bottom: 15px;
         margin-right: 15px;
@@ -77,7 +85,7 @@
         background-color: #0181fa;
         font-size: 18px;
         color: white;
-        border: 1px solid #0181fa;
+        border: 0px solid #0181fa;
         border-radius: 4px;
     }
 
@@ -96,15 +104,42 @@
         })
 
         $("#checkin-button").click(() => {
-            $("#checkin-complete").text("Tack för att du checkade in! =)");
+
+            $("#checkout-plats").val($("#checkin-plats").val())
+            $("#checkout-ticket").val($("#checkin-ticket").val())
+            $("#checkout-phone").val($("#checkin-phone").val())
+            $("#checkout-desc").val($("#checkin-desc").val())
+            $("#checkout-length").val($("#checkin-length").val()+" timmar")
+
             $("#checkin").fadeOut(200, () => {
-                $("#checkin-complete").fadeIn()
+                $("#checkout").fadeIn()
             })
         })
 
-        $("#myRange").on('input', (val, event) => {
-            $("#myRangeValue").text($("#myRange").val() + " timmar")
+        $("#checkout-button").click(() => {
+            $("#checkout").fadeOut(200, () => {
+                $("#checkedout").fadeIn()
+            })
         })
+
+        $("#checkin-new").click(() => {
+            $("#checkin-plats, #checkout-plats").val("");
+            $("#checkin-ticket, #checkout-ticket").val("");
+            $("#checkin-phone, #checkout-phone").val("");
+            $("#checkin-desc, #checkout-desc").val("");
+            $("#checkin-length, #checkout-length").val("");
+            $("#checkedout").fadeOut(200, () => {
+                $("#checkin").fadeIn()
+            })
+        })
+
+        $("#checkin-length").on('input', (val, event) => {
+            $("#checkin-length-value").text($("#checkin-length").val() + " timmar")
+        })
+
+        function clearFields() {
+            
+        }
 
         function onScanSuccess(decodedText, decodedResult) {
             console.log(`Code scanned = ${decodedText}`, decodedResult)
@@ -130,9 +165,15 @@
     <div id="login" class="content">
         <img src="workers.png" class="center">
         <div class="field">
-            <div>Tekniker</div>
+            <div>Användarnamn</div>
             <div>
-                <input id="tekniker" type="text" placeholder="Tekniker ID" class="content-field-input">
+                <input id="tekniker" type="text" placeholder="Användarnamn" class="content-field-input">
+            </div>
+        </div>
+        <div class="field">
+            <div>Lösenord</div>
+            <div>
+                <input id="password" type="password" placeholder="Lösenord" class="content-field-input">
             </div>
         </div>
         <input id="login-button" type="button" value="Logga in" class="button" />
@@ -147,38 +188,79 @@
         <div class="field" style="margin-top:10px;">
             <div>Plats</div>
             <div>
-                <input id="plats" type="text" placeholder="Plats för incheckning" class="content-field-input">
+                <input id="checkin-plats" type="text" placeholder="Plats för incheckning" class="content-field-input">
             </div>
         </div>
         <div class="field" style="margin-top:10px;">
             <div>Ärendenummer</div>
             <div>
-                <input type="text" placeholder="JOBB-1154" class="content-field-input">
+                <input id="checkin-ticket" type="number" placeholder="JOBB-1154" class="content-field-input">
             </div>
         </div>
         <div class="field">
             <div>Telefonnummer</div>
             <div>
-                <input type="tel" placeholder="070-111 22 33" class="content-field-input">
+                <input id="checkin-phone" type="tel" placeholder="070-111 22 33" class="content-field-input">
             </div>
         </div>
         <div class="field">
             <div>Arbetsbeskrivning</div>
             <div>
-                <textarea placeholder="Beskriv typ av arbete"></textarea>
+                <textarea id="checkin-desc" placeholder="Beskriv typ av arbete"></textarea>
             </div>
         </div>
         <div class="field">
             <div>Längd på arbete <i style="color:#999;">(timmar)</i></div>
             <div>
-                <input type="range" min="1" max="24" value="8" class="slider" id="myRange">
+                <input type="range" min="1" max="24" value="8" class="slider" id="checkin-length">
             </div>
-            <div id="myRangeValue"></div>
+            <div id="checkin-length-value"></div>
         </div>
-        <input id="checkin-button" type="button" value="Checka in" class="button" style="margin-bottom: 20px;" />
+        <input id="checkin-button" type="button" value="Checka in" class="button" style="margin-bottom: 20px;background-color:#00b551;" />
     </div>
 
-    <div id="checkin-complete" class="content" style="display: none;"></div>
+    <div id="checkout" class="content" style="display: none;">
+        <div style="text-align: center;margin: 5px 0px 10px 0px;">Tack! du är nu incheckad =)</div>
+        <div class="field" style="margin-top:10px;">
+            <div>Plats</div>
+            <div>
+                <input id="checkout-plats" type="text"class="content-field-input"
+                    disabled>
+            </div>
+        </div>
+        <div class="field" style="margin-top:10px;">
+            <div>Ärendenummer</div>
+            <div>
+                <input id="checkout-ticket" type="number" class="content-field-input" disabled>
+            </div>
+        </div>
+        <div class="field">
+            <div>Telefonnummer</div>
+            <div>
+                <input id="checkout-phone" type="tel" class="content-field-input" disabled>
+            </div>
+        </div>
+        <div class="field">
+            <div>Arbetsbeskrivning</div>
+            <div>
+                <textarea id="checkout-desc" disabled></textarea>
+            </div>
+        </div>
+        <div class="field">
+            <div>Längd på arbete <i style="color:#999;">(timmar)</i></div>
+            <div>
+                <input id="checkout-length" type="tel" class="content-field-input" disabled>
+            </div>
+        </div>
+        <input id="checkout-button" type="button" value="Checka ut" class="button" style="margin-bottom: 20px;background-color:#d54242;" />
+    </div>
+
+    <div id="checkedout" class="content" style="display: none;">
+        <div style="text-align: center;margin: 5px 0px 10px 0px;">Tack! du är nu utcheckad</div>
+        <img src="exit.png" class="center">
+        <input id="checkin-new" type="button" value="Checka in på ny plats" class="button"
+            style="margin-bottom: 20px;margin-top:15px;" />
+    </div>
 
 </body>
 
