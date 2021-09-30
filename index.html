@@ -5,54 +5,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
     <script src="html5-qrcode.min.js"></script>
     <title>Incheckning</title>
 </head>
 <style>
-    html {
+    html,
+    body {
         margin: 0px;
         padding: 0px;
         font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
     }
 
-    .field {
-        padding: 5px;
-        margin: 5px 0px;
+    .logo {
+        background-color: #333;
+        text-align: 'center';
+        padding: 10px;
+        color: white;
+    }
+
+    .content {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .content-field {
         border: 1px solid #999999;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    .content-field-input {
+        padding: 5px 0px;
+        width: 100%;
     }
 </style>
 <script>
-    function onScanSuccess(decodedText, decodedResult) {
-        // Handle on success condition with the decoded text or result.
-        console.log(`Scan result: ${decodedText}`, decodedResult);
-    }
+    $(document).ready(function () {
+        function onScanSuccess(decodedText, decodedResult) {
+            console.log(`Code scanned = ${decodedText}`, decodedResult);
+            $("#qr-result").text(`Code scanned = ${decodedText}`, decodedResult);
+        }
 
-    function onScanError(errorMessage) {
-        console.log(errorMessage);
-    }
-
-    var html5QrcodeScanner = new Html5QrcodeScanner(
-        "reader", { fps: 10, qrbox: 250 });
-    html5QrcodeScanner.render(onScanSuccess, onScanError);
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "qr-reader", { fps: 10, qrbox: 250 });
+        html5QrcodeScanner.render(onScanSuccess);
+    });
 </script>
-<body>
-    <div>Incheckning</div>
 
-    <div style="width: 200px;height:200px;border:1px solid black;" id="reader"></div>
+<body>
+    <div class="logo">Incheckning</div>
     <div class="content">
-        <div class="">
-            <input type="text" class="field" id="">
-        </div>
-        <div>
-            <input type="text" class="field" id="">
-        </div>
-        <div>
-            <input type="text" class="field" id="">
-        </div>
-        <div>
-            <input type="button" value="Checka in" id="">
+        <div id="qr-reader" style="width: 100%;"></div>
+        <div id="qr-result"></div>
+        <div class="field">
+            <div>Tekniker</div>
+            <div>
+                <input type="text" placeholder="Tekniker ID" class="content-field-input">
+            </div>
         </div>
     </div>
+
 </body>
 
 
