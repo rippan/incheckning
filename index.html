@@ -37,7 +37,7 @@
     }
 
     .content-field-input {
-        padding: 5px 0px;
+        padding: 5px 5px;
         width: 100%;
     }
 </style>
@@ -46,12 +46,12 @@
         function onScanSuccess(decodedText, decodedResult) {
             console.log(`Code scanned = ${decodedText}`, decodedResult);
             $("#qr-result").text(`Code scanned = ${decodedText}`, decodedResult);
-            $("#qr-sms").html(`<a href="${decodedText}">Click here to text us!</a>`);
+            $("#qr-sms").html(`<a href="${decodedText}">${decodedText}</a>`);
             
         }
 
         var html5QrcodeScanner = new Html5QrcodeScanner(
-            "qr-reader", { fps: 10, qrbox: 250 });
+            "qr-reader", { fps: 10, qrbox: 200 });
         html5QrcodeScanner.render(onScanSuccess);
     });
 </script>
