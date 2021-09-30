@@ -139,7 +139,7 @@
 
         function onScanSuccess(decodedText, decodedResult) {
             console.log(`Code scanned = ${decodedText}`, decodedResult)
-            $("#plats").val(decodedText);
+            $("#checkin-plats").val(decodedText);
             //$("#qr-result").text(`Code scanned: ${decodedText}`)
             //$("#qr-sms").html(`<a href="${decodedText}">${decodedText}</a>`)
             html5QrcodeScanner.clear(); // Stop scanning after successfull QR read
