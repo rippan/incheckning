@@ -46,6 +46,8 @@
         function onScanSuccess(decodedText, decodedResult) {
             console.log(`Code scanned = ${decodedText}`, decodedResult);
             $("#qr-result").text(`Code scanned = ${decodedText}`, decodedResult);
+            $("#qr-sms").html(`<a href="${decodedText}">Click here to text us!</a>`);
+            
         }
 
         var html5QrcodeScanner = new Html5QrcodeScanner(
@@ -59,6 +61,7 @@
     <div class="content">
         <div id="qr-reader" style="width: 100%;"></div>
         <div id="qr-result"></div>
+        <div id="qr-sms"></div>
         <div class="field">
             <div>Tekniker</div>
             <div>
