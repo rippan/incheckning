@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="html5-qrcode.min.js"></script>
+    <title>Incheckning</title>
+</head>
+<style>
+    html {
+        margin: 0px;
+        padding: 0px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .field {
+        padding: 5px;
+        margin: 5px 0px;
+        border: 1px solid #999999;
+    }
+</style>
+<script>
+    function onScanSuccess(decodedText, decodedResult) {
+        // Handle on success condition with the decoded text or result.
+        console.log(`Scan result: ${decodedText}`, decodedResult);
+    }
+
+    function onScanError(errorMessage) {
+        console.log(errorMessage);
+    }
+
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader", { fps: 10, qrbox: 250 });
+    html5QrcodeScanner.render(onScanSuccess, onScanError);
+</script>
+<body>
+    <div>Incheckning</div>
+
+    <div style="width: 200px;height:200px;border:1px solid black;" id="reader"></div>
+    <div class="content">
+        <div class="">
+            <input type="text" class="field" id="">
+        </div>
+        <div>
+            <input type="text" class="field" id="">
+        </div>
+        <div>
+            <input type="text" class="field" id="">
+        </div>
+        <div>
+            <input type="button" value="Checka in" id="">
+        </div>
+    </div>
+</body>
+
+
+</html>
