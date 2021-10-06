@@ -81,3 +81,8 @@ textarea:disabled {
 .slider {
     width: 100%;
 }
+
+.inputSuccess {
+    border-color: green;
+    background-color: #bdffc5;
+}

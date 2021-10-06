@@ -55,11 +55,13 @@ $(document).ready(function() {
 
     function onScanSuccess(decodedText, decodedResult) {
         console.log(`Code scanned = ${decodedText}`, decodedResult)
-        $("#checkin-plats").val(decodedText);
+
+
+        $("#checkin-plats").val(decodedText.substr(17)).addClass('inputSuccess');
         //$("#qr-result").text(`Code scanned: ${decodedText}`)
         //$("#qr-sms").html(`<a href="${decodedText}">${decodedText}</a>`)
         //$("#qr-new").show();
-        //html5QrcodeScanner.clear(); // Stop scanning after successfull QR read
+        html5QrcodeScanner.clear(); // Stop scanning after successfull QR read
     }
 
     function onScanError(errorMessage) {
