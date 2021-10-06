@@ -41,6 +41,8 @@ $(document).ready(function() {
         $("#checkin-length-value").text($("#checkin-length").val() + " timmar")
     })
 
+    
+
     function newQR() {
         $("#qr-reader").show();
         html5QrcodeScanner = new Html5QrcodeScanner(
@@ -71,4 +73,6 @@ $(document).ready(function() {
             qrbox: 200
         })
     html5QrcodeScanner.render(onScanSuccess, onScanError)
+
+    $("#qr-reader__dashboard_section_swaplink").hide();
 })
