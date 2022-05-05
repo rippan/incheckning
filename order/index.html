@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/jquery.js"></script>
+    <script src="../js/order.js"></script>
+    <title>Arbetsorder</title>
+</head>
+
+<body>
+    <div class="logo" style="background-color: darkblue;">Arbetsorder 130000123</div>
+    <div id="checkin" class="content" style="display: none;">
+        <div id="hello"></div>
+        <div class="field" style="margin-top:10px;">
+            <div class="field">
+                <div>Arbetsbeskrivning</div>
+            </div>
+
+            <div style="border:2px solid #aaa;padding:10px;border-radius: 4px;margin-bottom:20px;">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><img src="../img/info.png" style="width:80px;height:80px;margin-right:10px;"></td>
+                            <td>
+                                Behöver hjälp med installation av utrustning i Teknikhus
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div>Teknikhus 1</div>
+            <div style="border:2px solid #aaa;padding:10px;border-radius: 4px;margin-bottom:20px;">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><img src="../img/house.png" style="width:80px;height:80px;margin-right:10px;"></td>
+                            <td>
+                                1. Montera utrustning<br>
+                                2. Installera kraft<br>
+                                3. Koppla in fiber<br></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input id="checkin-button-1" type="button" value="Checka in i Teknikhus 1" class="button"
+                style="margin-bottom: 20px;background-color:#00b551;margin-bottom:5px;" />
+            </div>
+
+            <div>Teknikhus 2</div>
+            <div style="border:2px solid #aaa;padding:10px;border-radius: 4px;margin-bottom:20px;">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><img src="../img/house.png" style="width:80px;height:80px;margin-right:10px;"></td>
+                            <td>
+                                1. Montera utrustning<br>
+                                2. Installera kraft<br>
+                                3. Koppla in fiber<br></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input id="checkin-button-2" type="button" value="Checka in i Teknikhus 1" class="button"
+                style="margin-bottom: 20px;background-color:#00b551;margin-bottom:5px;" />
+            </div>
+
+            <div>Teknikhus 3</div>
+            <div style="border:2px solid #aaa;padding:10px;border-radius: 4px;margin-bottom:20px;">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><img src="../img/house.png" style="width:80px;height:80px;margin-right:10px;"></td>
+                            <td>
+                                1. Montera utrustning<br>
+                                2. Installera kraft<br>
+                                3. Koppla in fiber<br></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input id="checkin-button-3" type="button" value="Checka in i Teknikhus 1" class="button"
+                style="margin-bottom: 20px;background-color:#00b551;margin-bottom:5px;" />
+            </div>
+            
+        </div>
+
+        <div id="checkout" class="content" style="display: none;">
+            <div style="text-align: center;margin: 5px 0px 10px 0px;">Tack! du är nu incheckad =)</div>
+            <div class="field" style="margin-top:10px;">
+                <div>Plats</div>
+                <div>
+                    <input id="checkout-plats" type="text" class="content-field-input" disabled>
+                </div>
+            </div>
+            <div class="field" style="margin-top:10px;">
+                <div>Ärendenummer</div>
+                <div>
+                    <input id="checkout-ticket" type="text" class="content-field-input" disabled>
+                </div>
+            </div>
+            <!--
+        <div class="field">
+            <div>Telefonnummer</div>
+            <div>
+                <input id="checkout-phone" type="tel" class="content-field-input" disabled>
+            </div>
+        </div>
+        -->
+            <div class="field">
+                <div>Arbetsbeskrivning</div>
+                <div>
+                    <textarea id="checkout-desc" disabled></textarea>
+                </div>
+            </div>
+            <div class="field">
+                <div>Längd på arbete <i style="color:#999;">(timmar)</i></div>
+                <div>
+                    <input id="checkout-length" type="tel" class="content-field-input" disabled>
+                </div>
+            </div>
+            <input id="checkout-button" type="button" value="Checka ut" class="button"
+                style="margin-bottom: 20px;background-color:#d54242;" />
+        </div>
+
+        <div id="checkedout" class="content" style="display: none;">
+            <div style="text-align: center;margin: 5px 0px 10px 0px;">Tack! du är nu utcheckad</div>
+            <img src="../img/exit.png" class="center">
+            <input id="checkin-new" type="button" value="Checka in på ny plats" class="button"
+                style="margin-bottom: 20px;margin-top:15px;" />
+        </div>
+
+</body>
+
+
+</html>
