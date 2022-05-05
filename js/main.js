@@ -33,14 +33,12 @@ $(document).ready(function() {
     $("#checkin-button-1").click(() => {
         $("#qr-reader").hide();
         $(".content").hide();
-        
         $("#checkin-plats, #checkout-plats").prop( "disabled", true ).val("Teknikhus 1");
         $("#checkin-ticket, #checkout-ticket").prop( "disabled", true ).val("10000123");
         $("#checkin-phone, #checkout-phone").val("");
         $("#checkin-desc, #checkout-desc").val("");
         $("#checkin-length, #checkout-length").val("");
         $("#checkin").fadeIn()
-        console.log("hej");
     });
 
     $("#checkin-button-2").click(() => {
@@ -94,7 +92,6 @@ $(document).ready(function() {
         $("#checkout-phone").val($("#checkin-phone").val())
         $("#checkout-desc").val($("#checkin-desc").val())
         $("#checkout-length").val($("#checkin-length").val() + " timmar")
-
         $("#checkin").fadeOut(200, () => {
             $("#checkout").fadeIn()
         })
@@ -103,8 +100,7 @@ $(document).ready(function() {
     $("#checkout-button").click(() => {
         $("#checkout").fadeOut(200, () => {
             //$("#checkedout").fadeIn()
-            $("#newcheckin").fadeIn()
-            $("#orders").fadeIn()
+            $("#checkedout").fadeIn()
         })
     })
 
@@ -115,15 +111,14 @@ $(document).ready(function() {
         $("#checkin-desc, #checkout-desc").val("");
         $("#checkin-length, #checkout-length").val("");
         $("#checkedout").fadeOut(200, () => {
-            $("#checkin").fadeIn()
+            $("#newcheckin").fadeIn()
+            $("#orders").fadeIn()
         })
     })
 
     $("#checkin-length").on('input', (val, event) => {
         $("#checkin-length-value").text("("+$("#checkin-length").val() + " timmar)")
     })
-
-    
 
     function newQR() {
         $("#qr-reader").show();
