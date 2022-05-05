@@ -8,7 +8,7 @@ body {
     overflow-x: hidden !important;
 }
 
-#hello {
+.hello {
     text-align: center;
     margin: 5px 0px 10px 0px;
 }

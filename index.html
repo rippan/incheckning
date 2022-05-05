@@ -30,8 +30,15 @@
         </div>
         <input id="login-button" type="button" value="Logga in" class="button" />
     </div>
+
+    <div id="newcheckin" class="content" style="display: none;">
+        <div class="hello"></div>
+        <input id="checkin-button-manual" type="button" value="Manuell incheckning" class="button"
+            style="margin-bottom: 20px;background-color:#00b551;margin-bottom:5px;" />
+    </div>
+
     <div id="checkin" class="content" style="display: none;">
-        <div id="hello"></div>
+        <div class="hello"></div>
         <div id="qr-new" class="center" style="height:100px;width:200px;display:none;">
             <a href="#" onclick="newQR()">Skanna ny QR-kod</a>
             <img src="img/qr.png" class="center" style="width:50px;">
@@ -74,7 +81,8 @@
             </div>
             <div id="checkin-length-value"></div>
         </div>
-        <input id="checkin-button" type="button" value="Checka in" class="button" style="margin-bottom: 20px;background-color:#00b551;" />
+        <input id="checkin-button" type="button" value="Checka in" class="button"
+            style="margin-bottom: 20px;background-color:#00b551;" />
     </div>
 
     <div id="checkout" class="content" style="display: none;">
@@ -111,13 +119,125 @@
                 <input id="checkout-length" type="tel" class="content-field-input" disabled>
             </div>
         </div>
-        <input id="checkout-button" type="button" value="Checka ut" class="button" style="margin-bottom: 20px;background-color:#d54242;" />
+        <input id="checkout-button" type="button" value="Checka ut" class="button"
+            style="margin-bottom: 20px;background-color:#d54242;" />
+    </div>
+
+    <div id="orders" class="content" class="content" style="display: none;">
+        <div class="field">
+            <div>Mina Ordrar</div>
+        </div>
+
+
+        <div style="border:2px solid #aaa;padding:10px;border-radius: 4px;margin-bottom:20px;">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><img src="img/order.png" style="width:80px;height:80px;margin-right:10px;"></td>
+                        <td>
+                            <div style="font-weight: bold;">Order 10000123</div>Installation utrustningar
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <input id="checkin-button-1" type="button" value="Öppna order" class="button openorder"
+                style="margin-bottom: 20px;margin-bottom:5px;" />
+        </div>
+
+
+        <div style="border:2px solid #aaa;padding:10px;border-radius: 4px;margin-bottom:20px;">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><img src="img/order.png" style="width:80px;height:80px;margin-right:10px;"></td>
+                        <td>
+                            <div style="font-weight: bold;">Order 10000124</div>Rivning kablar
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <input id="checkin-button-2" type="button" value="Öppna order" class="button openorder"
+                style="margin-bottom: 20px;margin-bottom:5px;" />
+        </div>
+
+    </div>
+
+    <div id="order" class="content" style="display: none;">
+        <div class="field">
+            <div>Arbetsbeskrivning</div>
+        </div>
+
+        <div style="border:2px solid #aaa;padding:10px;border-radius: 4px;margin-bottom:20px;">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><img src="img/order.png" style="width:80px;height:80px;margin-right:10px;"></td>
+                        <td>
+                            Behöver hjälp med installation av utrustning i Teknikhus
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>Teknikhus 1</div>
+        <div style="border:2px solid #aaa;padding:10px;border-radius: 4px;margin-bottom:20px;">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><img src="img/house.png" style="width:80px;height:80px;margin-right:10px;"></td>
+                        <td>
+                            1. Montera utrustning<br>
+                            2. Installera kraft<br>
+                            3. Koppla in fiber<br></td>
+                    </tr>
+                </tbody>
+            </table>
+            <input id="checkin-button-1" type="button" value="Checka in i Teknikhus 1" class="button"
+                style="margin-bottom: 20px;background-color:#00b551;margin-bottom:5px;" />
+        </div>
+
+        <div>Teknikhus 2</div>
+        <div style="border:2px solid #aaa;padding:10px;border-radius: 4px;margin-bottom:20px;">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><img src="img/house.png" style="width:80px;height:80px;margin-right:10px;"></td>
+                        <td>
+                            1. Montera utrustning<br>
+                            2. Installera kraft<br>
+                            3. Koppla in fiber<br></td>
+                    </tr>
+                </tbody>
+            </table>
+            <input id="checkin-button-2" type="button" value="Checka in i Teknikhus 2" class="button"
+                style="margin-bottom: 20px;background-color:#00b551;margin-bottom:5px;" />
+        </div>
+
+        <div>Teknikhus 3</div>
+        <div style="border:2px solid #aaa;padding:10px;border-radius: 4px;margin-bottom:20px;">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><img src="img/house.png" style="width:80px;height:80px;margin-right:10px;"></td>
+                        <td>
+                            1. Montera utrustning<br>
+                            2. Installera kraft<br>
+                            3. Koppla in fiber<br></td>
+                    </tr>
+                </tbody>
+            </table>
+            <input id="checkin-button-3" type="button" value="Checka in i Teknikhus 3" class="button"
+                style="margin-bottom: 20px;background-color:#00b551;margin-bottom:5px;" />
+        </div>
+
     </div>
 
     <div id="checkedout" class="content" style="display: none;">
         <div style="text-align: center;margin: 5px 0px 10px 0px;">Tack! du är nu utcheckad</div>
         <img src="img/exit.png" class="center">
-        <input id="checkin-new" type="button" value="Checka in på ny plats" class="button" style="margin-bottom: 20px;margin-top:15px;" />
+        <input id="checkin-new" type="button" value="Checka in på ny plats" class="button"
+            style="margin-bottom: 20px;margin-top:15px;" />
     </div>
 
 </body>
