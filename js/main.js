@@ -120,7 +120,7 @@ $(document).ready(function() {
     })
 
     $("#checkin-length").on('input', (val, event) => {
-        $("#checkin-length-value").text($("#checkin-length").val() + " timmar")
+        $("#checkin-length-value").text("("+$("#checkin-length").val() + " timmar)")
     })
 
     
