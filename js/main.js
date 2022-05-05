@@ -32,29 +32,37 @@ $(document).ready(function() {
 
     $("#checkin-button-1").click(() => {
         $("#qr-reader").hide();
+        $(".content").hide();
+        
         $("#checkin-plats, #checkout-plats").prop( "disabled", true ).val("Teknikhus 1");
         $("#checkin-ticket, #checkout-ticket").prop( "disabled", true ).val("10000123");
         $("#checkin-phone, #checkout-phone").val("");
         $("#checkin-desc, #checkout-desc").val("");
         $("#checkin-length, #checkout-length").val("");
+        $("#checkin").fadeIn()
+        console.log("hej");
     });
 
-    $("#checkin-button-1").click(() => {
+    $("#checkin-button-2").click(() => {
         $("#qr-reader").hide();
+        $(".content").hide();
         $("#checkin-plats, #checkout-plats").prop( "disabled", true ).val("Teknikhus 2");
         $("#checkin-ticket, #checkout-ticket").prop( "disabled", true ).val("10000123");
         $("#checkin-phone, #checkout-phone").val("");
         $("#checkin-desc, #checkout-desc").val("");
         $("#checkin-length, #checkout-length").val("");
+        $("#checkin").fadeIn()
     });
 
-    $("#checkin-button-1").click(() => {
+    $("#checkin-button-3").click(() => {
         $("#qr-reader").hide();
+        $(".content").hide();
         $("#checkin-plats, #checkout-plats").prop( "disabled", true ).val("Teknikhus 3");
         $("#checkin-ticket, #checkout-ticket").prop( "disabled", true ).val("10000123");
         $("#checkin-phone, #checkout-phone").val("");
         $("#checkin-desc, #checkout-desc").val("");
         $("#checkin-length, #checkout-length").val("");
+        $("#checkin").fadeIn()
     });
 
     $("#login-button").click(() => {
@@ -66,6 +74,7 @@ $(document).ready(function() {
     })
 
     $(".openorder").click(() => {
+        $(".content").hide();
         $("#newcheckin").fadeOut()
         $("#orders").fadeOut(200, () => {
             $("#order").fadeIn()
@@ -74,12 +83,12 @@ $(document).ready(function() {
 
     $("#checkin-button-manual").click(() => {
         $("#newcheckin").fadeOut(200, () => {
+            $(".content").hide();
             $("#checkin").fadeIn()
         })
     })
 
     $("#checkin-button").click(() => {
-
         $("#checkout-plats").val($("#checkin-plats").val())
         $("#checkout-ticket").val($("#checkin-ticket").val())
         $("#checkout-phone").val($("#checkin-phone").val())
@@ -93,7 +102,9 @@ $(document).ready(function() {
 
     $("#checkout-button").click(() => {
         $("#checkout").fadeOut(200, () => {
-            $("#checkedout").fadeIn()
+            //$("#checkedout").fadeIn()
+            $("#newcheckin").fadeIn()
+            $("#orders").fadeIn()
         })
     })
 

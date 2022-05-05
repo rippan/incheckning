@@ -33,8 +33,17 @@
 
     <div id="newcheckin" class="content" style="display: none;">
         <div class="hello"></div>
+
+        <div id="checkin-button-manual"
+        style="padding:10px;margin-bottom: 20px;background-color:#00b551;margin-bottom:5px;border-radius: 4px;
+        text-align: center;font-size: 18px;" >
+        <img src="img/qr.png" style="width:80px;height:80px;border-radius: 4px;">
+        <div style="color:white;">Manuell incheckning</div>
+    </div>
+        <!--
         <input id="checkin-button-manual" type="button" value="Manuell incheckning" class="button"
             style="margin-bottom: 20px;background-color:#00b551;margin-bottom:5px;" />
+            -->
     </div>
 
     <div id="checkin" class="content" style="display: none;">
@@ -57,7 +66,7 @@
         <div class="field" style="margin-top:10px;">
             <div>Ärendenummer</div>
             <div>
-                <input id="checkin-ticket" type="num" placeholder="10000123" class="content-field-input">
+                <input id="checkin-ticket" type="num" placeholder="10000000" class="content-field-input">
             </div>
         </div>
         <!--
@@ -140,7 +149,7 @@
                     </tr>
                 </tbody>
             </table>
-            <input id="checkin-button-1" type="button" value="Öppna order" class="button openorder"
+            <input type="button" value="Öppna order" class="button openorder"
                 style="margin-bottom: 20px;margin-bottom:5px;" />
         </div>
 
@@ -156,7 +165,7 @@
                     </tr>
                 </tbody>
             </table>
-            <input id="checkin-button-2" type="button" value="Öppna order" class="button openorder"
+            <input type="button" value="Öppna order" class="button openorder"
                 style="margin-bottom: 20px;margin-bottom:5px;" />
         </div>
 
