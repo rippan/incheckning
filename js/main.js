@@ -4,6 +4,7 @@ $(document).ready(function() {
     const queryString = window.location.search;
 
     if(queryString=="?1") {
+        $("#qr-reader").hide();
         $("#checkin-plats, #checkout-plats").prop( "disabled", true ).val("Teknikhus 1");
         $("#checkin-ticket, #checkout-ticket").prop( "disabled", true ).val("130000123");
         $("#checkin-phone, #checkout-phone").val("");
@@ -12,6 +13,7 @@ $(document).ready(function() {
     }
 
     if(queryString=="?2") {
+        $("#qr-reader").hide();
         $("#checkin-plats, #checkout-plats").prop( "disabled", true ).val("Teknikhus 2");
         $("#checkin-ticket, #checkout-ticket").prop( "disabled", true ).val("130000123");
         $("#checkin-phone, #checkout-phone").val("");
@@ -20,6 +22,7 @@ $(document).ready(function() {
     }
 
     if(queryString=="?3") {
+        $("#qr-reader").hide();
         $("#checkin-plats, #checkout-plats").prop( "disabled", true ).val("Teknikhus 3");
         $("#checkin-ticket, #checkout-ticket").prop( "disabled", true ).val("130000123");
         $("#checkin-phone, #checkout-phone").val("");
