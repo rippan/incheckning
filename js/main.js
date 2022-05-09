@@ -105,6 +105,9 @@ $(document).ready(function() {
     })
 
     $("#checkin-new").click(() => {
+        $("#qr-reader").show();
+        $("#checkin-plats").prop( "disabled", false ).val("");
+        $("#checkin-ticket").prop( "disabled", false ).val("");
         $("#checkin-plats, #checkout-plats").val("");
         $("#checkin-ticket, #checkout-ticket").val("");
         $("#checkin-phone, #checkout-phone").val("");
