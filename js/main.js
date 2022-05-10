@@ -137,10 +137,10 @@ $(document).ready(function() {
         console.log(`Code scanned = ${decodedText}`, decodedResult)
 
 
-        $("#checkin-plats").val(decodedText.substr(17)).addClass('inputSuccess');
-        $("#qr-result").text(`Code scanned: ${decodedText}`)
-        $("#qr-sms").html(`<a href="${decodedText}">${decodedText}</a>`)
-        $("#qr-new").show();
+        $("#checkin-plats").val(decodedText).addClass('inputSuccess');
+        //$("#qr-result").text(`Code scanned: ${decodedText}`)
+        //$("#qr-sms").html(`<a href="${decodedText}">${decodedText}</a>`)
+        //$("#qr-new").show();
         html5QrcodeScanner.clear(); // Stop scanning after successfull QR read
     }
 
