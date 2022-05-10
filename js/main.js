@@ -138,9 +138,9 @@ $(document).ready(function() {
 
 
         $("#checkin-plats").val(decodedText.substr(17)).addClass('inputSuccess');
-        //$("#qr-result").text(`Code scanned: ${decodedText}`)
-        //$("#qr-sms").html(`<a href="${decodedText}">${decodedText}</a>`)
-        //$("#qr-new").show();
+        $("#qr-result").text(`Code scanned: ${decodedText}`)
+        $("#qr-sms").html(`<a href="${decodedText}">${decodedText}</a>`)
+        $("#qr-new").show();
         html5QrcodeScanner.clear(); // Stop scanning after successfull QR read
     }
 
