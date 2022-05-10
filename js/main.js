@@ -106,6 +106,7 @@ $(document).ready(function() {
 
     $("#checkin-new").click(() => {
         $("#qr-reader").show();
+        $("#qr-new").show();
         $("#checkin-plats").prop( "disabled", false ).val("").removeClass('inputSuccess');;
         $("#checkin-ticket").prop( "disabled", false ).val("");
         $("#checkin-plats, #checkout-plats").val("");
